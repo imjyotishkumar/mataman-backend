@@ -11,7 +11,7 @@ app.use(cors());
 
 console.log("Database URL is:", process.env.DATABASE_URL);
 
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DATABASE_URL)
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.error("MongoDB connection error:", err));
 
