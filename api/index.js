@@ -18,6 +18,7 @@ mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTo
 const userRoutes = require("../routes/ProductRoutes");
 const UserBuyRoutes = require('../routes/UserBuyRoutes');
 const UserDetail = require('../routes/UserDetail');
+
 app.use("/users", userRoutes);
 app.use('/userbuy',UserBuyRoutes)
 app.use('/userdetail',UserDetail)
@@ -29,3 +30,5 @@ app.get('/',(req,res)=>{
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+module.exports = app;
