@@ -9,15 +9,15 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json()); 
 app.use(cors()); 
 
+console.log("Database URL is:", process.env.DATABASE_URL);
 
-mongoose
-  .connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.error("MongoDB connection error:", err));
 
-const userRoutes = require("./routes/ProductRoutes");
-const UserBuyRoutes = require('./routes/UserBuyRoutes');
-const UserDetail = require('./routes/UserDetail');
+const userRoutes = require("../routes/ProductRoutes");
+const UserBuyRoutes = require('../routes/UserBuyRoutes');
+const UserDetail = require('../routes/UserDetail');
 app.use("/users", userRoutes);
 app.use('/userbuy',UserBuyRoutes)
 app.use('/userdetail',UserDetail)
