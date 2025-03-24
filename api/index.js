@@ -30,11 +30,13 @@ mongoose.connect(process.env.DATABASE_URL)
 const userRoutes = require("../routes/ProductRoutes");
 const UserBuyRoutes = require("../routes/UserBuyRoutes");
 const UserDetail = require("../routes/UserDetail");
+const paymentRoutes = require('../routes/paymentRoutes');
 
 // Use routes
 app.use("/users", userRoutes);
 app.use("/userbuy", UserBuyRoutes);
 app.use("/userdetail", UserDetail);
+app.use('/paymentroutes',paymentRoutes);
 
 // Health check route
 app.get("/", (req, res) => {
